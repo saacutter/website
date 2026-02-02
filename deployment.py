@@ -38,7 +38,7 @@ def main():
             post = {}
             post["root"] = root
             post["filename"] = file
-            post["title"] = frontmatter.get("title", post["filename"].replace(".md", ""))
+            post["title"] = frontmatter.get("title", post["filename"].replace(".md", "").replace("-", " ").title())
             post["slug"] = frontmatter.get("slug", post["title"].lower().replace(" ", "-"))
             post["created"] = frontmatter.get("created", mtime)
             post["modified"] = frontmatter.get("modified", "")
@@ -144,7 +144,7 @@ def main():
                 makedirs(path, exist_ok=True)
                 
                 # Write the render to a file
-                with open(f"{join(path, post["slug"])}.html", "w") as file:
+                with open(f"{join(path, "index.html")}", "w") as file:
                     file.write(output)
 
                 # If the file was in a directory, then copy over all other contents to make it accessible to the rendered HTML post

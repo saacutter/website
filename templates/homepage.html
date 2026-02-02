@@ -90,7 +90,7 @@
     {% for year, months in posts.items() | sort(attribute='0', reverse=True) %}
         <div style="margin-bottom: 5em;">
             <h1>{{ year }}</h1>
-            {% for month, blog in months.items() | sort(attribute='0') %}
+            {% for month, blog in months.items() | sort(attribute='0', reverse=True) %}
                 <div style="margin-left: 2em;">
                     <h3>{{ datetime.datetime.strptime(month, '%m').strftime('%B') }}</h3>
                     {% for post in blog %}
