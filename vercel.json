@@ -9,10 +9,6 @@
         {
             "source": "/(\\d{4})/(\\d{2})/(\\d{2})/(.+)/", 
             "destination": "/blog/$1/$2/$3/$4/index.html"
-        },
-        {
-            "source": "/(.+)", 
-            "destination": "/?view=home"
         }
     ]
 }
