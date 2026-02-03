@@ -82,6 +82,10 @@ def main():
             # If the post has an empty modification field, ignore it
             if post["modified"] == "" or post["created"] == post["modified"]: del post["modified"]
 
+            # Calculate the reading time of the post (using an average WPM of 200)
+            time = len(post["content"].split(" ")) // 200 + 1 # minimum time of 1 minute
+            post["reading"] = f"{time} minute(s)" if time < 60 else f"{time / 60:.2f} hours"
+
             # Append the (updated) post to the list of posts
             month, year = post["modified"].strftime("%m %Y").split(" ") if "modified" in post else post["created"].strftime("%m %Y").split(" ")
             if year not in POSTS: POSTS[year] = {}
@@ -93,11 +97,13 @@ def main():
 
             # Write the updated yaml to the file (excluding the content)
             del post["content"]
+            del post["reading"]
             with open(path, "w") as write_file:
                 write_file.write("---\n")
                 safe_dump(post, write_file, default_flow_style=False, sort_keys=False)
                 write_file.write("---\n\n")
                 write_file.write(content.lstrip("\n"))
+
 
 
     # Sort the posts by their modification date (newest first)

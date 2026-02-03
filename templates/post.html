@@ -3,6 +3,7 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block head %}
+<script src="https://kit.fontawesome.com/db03052081.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
@@ -13,7 +14,25 @@
         <div class="centered" {% if post.toc %} style="width: 70%; margin: 0; margin-left: 5em;" {% endif %}>
             <header>
                 <h1>{{ post.title }}</h1>
-                <p>{{ post.created.strftime('%d %B, %Y') }} {% if "modified" in post %}<span>(last updated {{ post.modified.strftime('%d %B, %Y') }})</span>{% endif %}</p>
+                <div class="centered" style="display: flex; gap: 1em;">
+                    <div class="v-centered post-details">
+                        <i class="fa-solid fa-calendar"></i>
+                        <time datetime="{{ post.created }}">{{ post.created.strftime('%d %B, %Y') }}</time>
+                        {% if "modified" in post %}(last updated <time datetime="{{ post.modified }}">{{ post.modified.strftime('%d %B, %Y') }})</time>{% endif %}
+                    </div>
+                    &bull;
+                    <div class="v-centered post-details">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>{{ post.reading }}</p>
+                    </div>
+                    <!-- 
+                    &bull;
+                    <div class="v-centered post-details">
+                        <i class="fa-solid fa-share"></i>
+                        <p>Share</p>
+                    </div> 
+                    -->
+                </div>
             </header>
             <hr style="width: 70%; border: 1px solid black;">
             <article class="centered post">

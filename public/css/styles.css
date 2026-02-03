@@ -33,9 +33,10 @@
 [data-theme="light"] { /* Adapted from https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f?comments_sort=latest */
   --bg-colour: #ffffff;
   --bg-colour-secondary: #555555;
+  --code-bg-colour: #f3f3f3;
   --text-colour: #000000;
   --text-colour-secondary: #3b3b3b;
-  --code-bg-colour: #f3f3f3;
+  --text-colour-a: #0000ff;
   --games-colour: rgb(76, 159, 248);
   --img-invert: invert(0%);
 }
@@ -43,9 +44,10 @@
 [data-theme="dark"] {
   --bg-colour: #2c2c2c;
   --bg-colour-secondary: #000000;
+  --code-bg-colour: #1a1b26;
   --text-colour: #ffffff;
   --text-colour-secondary: #afafaf;
-  --code-bg-colour: #1a1b26;
+  --text-colour-a: #7080ff;
   --games-colour: rgb(179, 96, 7);
   --img-invert: invert(100%);
 }
@@ -61,6 +63,7 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
+  color: var(--text-colour-a);
 }
 
 .programs a {
@@ -127,6 +130,10 @@ header.base, footer {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.v-centered {
+  align-items: center;
 }
 
 .icon > img {
@@ -317,6 +324,11 @@ article {
   text-align: left;
 }
 
+.post-details {
+  display: inline-flex; 
+  gap: 0.5em;
+}
+
 code, pre {
   white-space: pre-wrap;
 }
@@ -366,6 +378,10 @@ h1[id]::before, h2[id]::before, h3[id]::before, h4[id]::before, h5[id]::before, 
   visibility: hidden;
 }
 
+code {
+  color: var(--text-colour-secondary);
+}
+
 @media screen and (max-width: 500px) {
   #home-nav {
     font-size: 10px;
@@ -385,7 +401,7 @@ h1[id]::before, h2[id]::before, h3[id]::before, h4[id]::before, h5[id]::before, 
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .toc {
     display: none;
   }
