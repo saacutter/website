@@ -34,7 +34,7 @@ def main():
                 frontmatter = {}
 
             # Add the frontmatter attributes to the post's state
-            mtime = datetime.datetime.fromtimestamp(getctime(path))
+            mtime = datetime.date.fromtimestamp(getctime(path))
             post = {}
             post["root"] = root
             post["filename"] = file
@@ -45,13 +45,17 @@ def main():
             post["hash"] = frontmatter.get("hash", "")
             post["content"] = content
 
-            # If the creation time is not a datetime, convert it into one
+            # If the creation time is a datetime, convert it into a date
             ctime = post["created"]
-            if not isinstance(ctime, datetime.datetime): post["created"] = datetime.datetime(ctime.year, ctime.month, ctime.day)
+            if isinstance(ctime, datetime.datetime): 
+                post["created"] = post["created"].date()
+                ctime = post["created"]
 
-            # If the modification time is not a datetime, convert it into one
+            # If the modification time is a datetime, convert it into a date
             utime = post["modified"]
-            if utime != "" and not isinstance(utime, datetime.datetime): post["modified"] = datetime.datetime(utime.year, utime.month, utime.day)
+            if utime != "" and isinstance(utime, datetime.datetime): 
+                post["modified"] = post["modified"].date()
+                utime = post["modified"]
 
             # If the ctime is greater than the utime, set the ctime to the utime and remove the utime
             if utime != "" and ctime > utime:
@@ -59,10 +63,10 @@ def main():
                 post["modified"] = mtime if mtime > utime else ""
 
             # If the creation or modification times are further than the current date, set it to the most recent modification datetime
-            if ctime > datetime.datetime.now(): post["created"] = mtime
-            if utime != "" and utime > datetime.datetime.now(): post["modified"] = mtime
+            if ctime > datetime.date.today(): post["created"] = mtime
+            if utime != "" and utime > datetime.date.today(): post["modified"] = mtime
 
-            # If the post has been updated, set the modification date to the most recent modification datetime
+            # If the post has been updated, set the modification date to the most recent modification date
             if post["hash"] == "" or (utime == "" and mtime > post["created"]) or (utime != "" and mtime > utime):
                 # Calculate the SHA-256 hash of the file (adapted from https://www.geeksforgeeks.org/python/how-to-detect-file-changes-using-python/)
                 with open(path, "rb") as byte_file:
@@ -112,7 +116,7 @@ def main():
     with open("public/index.html", "w") as file:
         file.write(output)
 
-    print("\033[0;32mThe homepage has successfully been created.\033[0m\n\n")
+    print("\033[0;32mThe homepage has successfully been created.\033[0m")
 
 
     # Create the markdown renderer
@@ -153,7 +157,7 @@ def main():
                         for file in files:
                             if not file.endswith(".md"): copy(join(root, file), path)
                 
-                print(f"\033[0;32mThe page for the {post["title"]} post has successfully been created.\033[0m\n")
+                print(f"\033[0;32mThe page for the {post["title"]} post has successfully been created.\033[0m")
 
 if __name__ == '__main__':
     main()
