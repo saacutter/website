@@ -1,5 +1,10 @@
 ---
+root: blog/creating-a-website-part-i
+filename: hosting-and-routing.md
 title: Creating a Website - Deployment
+slug: creating-a-website-deployment
+created: 2026-02-05 08:51:23.670405
+hash: e1f017b280cb1ab1eb8095bc0f34338bccbf089bc02ff44498fdc272e187248d
 ---
 
 # Introduction
