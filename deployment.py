@@ -34,27 +34,27 @@ def main():
                 frontmatter = {}
 
             # Add the frontmatter attributes to the post's state
-            mtime = datetime.date.fromtimestamp(getctime(path))
+            mtime = datetime.datetime.fromtimestamp(getctime(path))
             post = {}
             post["root"] = root
             post["filename"] = file
             post["title"] = frontmatter.get("title", post["filename"].replace(".md", "").replace("-", " ").title())
-            post["slug"] = frontmatter.get("slug", post["title"].lower().replace(" ", "-"))
+            post["slug"] = frontmatter.get("slug", post["title"].lower().replace(" - ", " ").replace(" ", "-"))
             post["created"] = frontmatter.get("created", mtime)
             post["modified"] = frontmatter.get("modified", "")
             post["hash"] = frontmatter.get("hash", "")
             post["content"] = content
 
-            # If the creation time is a datetime, convert it into a date
+            # If the creation time is not a datetime, convert it into one
             ctime = post["created"]
-            if isinstance(ctime, datetime.datetime): 
-                post["created"] = post["created"].date()
+            if not isinstance(ctime, datetime.datetime): 
+                post["created"] = datetime.datetime(ctime.year, ctime.month, ctime.day)
                 ctime = post["created"]
 
-            # If the modification time is a datetime, convert it into a date
+            # If the modification time is not a datetime, convert it into one
             utime = post["modified"]
-            if utime != "" and isinstance(utime, datetime.datetime): 
-                post["modified"] = post["modified"].date()
+            if utime != "" and not isinstance(utime, datetime.datetime): 
+                post["modified"] = datetime.datetime(utime.year, utime.month, utime.day)
                 utime = post["modified"]
 
             # If the ctime is greater than the utime, set the ctime to the utime and remove the utime
@@ -63,8 +63,8 @@ def main():
                 post["modified"] = mtime if mtime > utime else ""
 
             # If the creation or modification times are further than the current date, set it to the most recent modification datetime
-            if ctime > datetime.date.today(): post["created"] = mtime
-            if utime != "" and utime > datetime.date.today(): post["modified"] = mtime
+            if ctime > datetime.datetime.now(): post["created"] = mtime
+            if utime != "" and utime > datetime.datetime.now(): post["modified"] = mtime
 
             # If the post has been updated, set the modification date to the most recent modification date
             if post["hash"] == "" or (utime == "" and mtime > post["created"]) or (utime != "" and mtime > utime):

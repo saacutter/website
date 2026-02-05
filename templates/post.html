@@ -18,7 +18,7 @@
                     <div class="v-centered post-details">
                         <i class="fa-solid fa-calendar"></i>
                         <time datetime="{{ post.created }}">{{ post.created.strftime('%d %B, %Y') }}</time>
-                        {% if "modified" in post %}(last updated <time datetime="{{ post.modified }}">{{ post.modified.strftime('%d %B, %Y') }})</time>{% endif %}
+                        {% if "modified" in post and post.modified.strftime('%d %B, %Y') != post.created.strftime('%d %B, %Y') %}(last updated <time datetime="{{ post.modified }}">{{ post.modified.strftime('%d %B, %Y') }})</time>{% endif %}
                     </div>
                     &bull;
                     <div class="v-centered post-details">
