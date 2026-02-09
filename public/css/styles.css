@@ -9,25 +9,8 @@
   font-weight: bold;
 }
 
-@font-face {
-  font-family: 'Tilt Warp';
-  src: url('/fonts/TiltWarp-Regular-VariableFont_XROT\,YROT.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Finger Paint';
-  src: url('/fonts/FingerPaint-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Jaro';
-  src: url('/fonts/Jaro-Regular.ttf') format('truetype');
-}
-
 :root {
-  --program-colour: rgb(250, 240, 231);
   --font: 'Atkinson Hyperlegible', Helvetica, Arial, sans-serif;
-  --project-height: 30em;
 }
 
 [data-theme="light"] { /* Adapted from https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f?comments_sort=latest */
@@ -66,34 +49,6 @@ a {
   color: var(--text-colour-a);
 }
 
-.programs a {
-  color: var(--text-colour);
-  background-color: var(--program-colour);
-  border-radius: 1em;
-  height: 15em;
-  width: 15em;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 5px 7px 10px rgb(158, 158, 158);
-  transition: 0.2s ease-out;
-}
-
-.program {
-  align-self: center;
-}
-
-.programs {
-  display: flex;
-  gap: 2em;
-  margin-top: 30vh;
-  height: 20em;
-  padding-left: 10px;
-}
-
 .container {
   width: 90%;
   margin: 0 auto;
@@ -109,19 +64,6 @@ h1 {
 
 header.base, footer {
   background-color: var(--bg-colour-secondary);
-}
-
-.programs > div > .programs-hover {
-  margin: -5px;
-  border: 5px solid var(--games-colour);
-  transition: 0.2s ease-in;
-  transform: translateY(-10px);
-}
-
-.program > h1 {
-  color: white;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 .centered {
@@ -149,48 +91,6 @@ header.base, footer {
   cursor: pointer;
 }
 
-.games-hotbar {
-  margin: 0.5em;
-  display: flex;
-  gap: 4em;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.games-hotbar a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 2em;
-}
-
-.hotbar-icon {
-  padding: 0.6em;
-  border: 2px solid black;
-  border-radius: 100%;
-  background-color: #efefef;
-  transition: 0.1s ease-out;
-}
-
-.hotbar-name {
-  visibility: hidden;
-  text-decoration: none;
-  color: var(--games-colour);
-  position: absolute;
-  width: max-content;
-  top: 2em;
-}
-
-.hotbar-icon:hover {
-  margin: -5px;
-  border: 5px solid var(--games-colour);
-  transition: 0.2s ease-in;
-}
-
-.hotbar-icon:hover + .hotbar-name {
-  visibility: visible;
-}
-
 #mii {
   height: 8vh;
   border-radius: 100%;
@@ -211,23 +111,6 @@ main > div {
   color: var(--text-colour);
   padding-top: 0.5em;
   padding-bottom: 1em;
-}
-
-#games-sep {
-  width: 95%;
-  margin-top: 2em;
-  color: black;
-}
-
-#menu-controls {
-  display: flex;
-  gap: 0.5em;
-  visibility: hidden;
-  justify-content: flex-end;
-}
-
-#play {
-  filter: var(--img-invert);
 }
 
 header.base {
@@ -383,7 +266,7 @@ code {
 }
 
 @media screen and (max-width: 500px) {
-  #home-nav {
+  #home-nav, code {
     font-size: 10px;
   }
 
@@ -392,12 +275,12 @@ code {
     padding: 1.8em;
   }
 
-  article {
-    width: 90%;
-  }
-
   .post-with-toc {
     margin: 0em;
+  }
+
+  .post-details {
+    font-size: 3vw;
   }
 }
 
@@ -408,5 +291,9 @@ code {
 
   .post-with-toc {
     display: block;
+  }
+
+  article {
+    width: 90%;
   }
 }
