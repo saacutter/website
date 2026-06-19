@@ -4,18 +4,12 @@ filename: hosting-and-routing.md
 title: Creating a Website - Deployment
 slug: creating-a-website-deployment
 created: 2026-02-05 08:51:23.670405
-hash: e1f017b280cb1ab1eb8095bc0f34338bccbf089bc02ff44498fdc272e187248d
+modified: 2026-02-05 17:12:02.695634
+hash: 33ad82ec74d35d4d4b74e7e7b5e55edffd2a6791ed175348cc32701771706992
 ---
 
 # Introduction
 Now that this website is *basically* complete, I thought it would be a good opportunity to write about it and explain some of my decision processes. A lot of time, research, and learning went into this project, and I'm happy with how it turned out in the end. Although this is usually the last step, the first thing I'm writing about is the deployment process. *Why?* Well, initially this post was going to include the entire process of creating this website but I started writing about deployment because it's what I thought was the most interesting (and definitely the one I could recall my decision making processes the easiest). As it turns out, I can write a lot about the most mundane topics. Deployment is a huge topic; this article turned out much longer than I expected! Therefore, I have decided to split this article into pieces so each component can go more in-depth (when I eventually get around to doing them, anyway).
-
-This article will cover the following topics:
-- Hosting
-    - Hosting Services
-    - Domain Registrars
-- Routing
-    - Subdomains
 
 <br><br>
 
@@ -125,11 +119,23 @@ To start out, I created the `games.isaacrutter.dev` subdomain. From there, I cre
 ```json
 {
     "rewrites": [
-        {"source": "/:game/", "destination": "https://isaacrutter.dev/Projects/Games/:game/index.html"},
-        {"source": "/:game/:path*", "destination": "https://isaacrutter.dev/Projects/Games/:game/:path*"},
+        {
+            "source": "/:game/", 
+            "destination": "https://isaacrutter.dev/Projects/Games/:game/index.html"
+        },
+        {
+            "source": "/:game/:path*", 
+            "destination": "https://isaacrutter.dev/Projects/Games/:game/:path*"
+        },
 
-        {"source": "/", "destination": "https://isaacrutter.dev/Projects/Games/menu.html"},
-        {"source": "/:path*", "destination": "https://isaacrutter.dev/:path*"}
+        {
+            "source": "/", 
+            "destination": "https://isaacrutter.dev/Projects/Games/menu.html"
+        },
+        {
+            "source": "/:path*", 
+            "destination": "https://isaacrutter.dev/:path*"
+        }
     ]
 }
 ```
@@ -139,10 +145,22 @@ Although this works, you might have already noticed an issue with the way this i
 ```json
 {
     "rewrites": [
-        {"source": "/js/:path*", "destination": "https://isaacrutter.dev/js/:path*"},
-        {"source": "/css/:path*", "destination": "https://isaacrutter.dev/css/:path*"},
-        {"source": "/img/:path*", "destination": "https://isaacrutter.dev/img/:path*"},
-        {"source": "/fonts/:font*", "destination": "https://isaacrutter.dev/fonts/:font*"},
+        {
+            "source": "/js/:path*", 
+            "destination": "https://isaacrutter.dev/js/:path*"
+        },
+        {
+            "source": "/css/:path*", 
+            "destination": "https://isaacrutter.dev/css/:path*"
+        },
+        {
+            "source": "/img/:path*", 
+            "destination": "https://isaacrutter.dev/img/:path*"
+        },
+        {
+            "source": "/fonts/:font*", 
+            "destination": "https://isaacrutter.dev/fonts/:font*"
+        },
 
         ...
     ]
@@ -153,8 +171,16 @@ Now the files all retrieve as expected, meaning that the [games.isaacrutter.dev]
 Moving onto the `projects.isaacrutter.dev` subdomain, this followed a similar process to the `games` subdomain. The only difference was with the base route. Because there is no page to navigate projects like there is for the games, I instead decided to make it redirect to the homepage's project view ([isaacrutter.dev/?view=projects](https://isaacrutter.dev/?view=projects)). This could be done using the `redirects` attribute available since the browser URL changing didn't matter:
 ```json
 "redirects": [
-    {"source": "/", "destination": "https://isaacrutter.dev/?view=projects", "permanent": true},
-    {"source": "/:path*", "destination": "https://isaacrutter.dev/?view=projects", "permanent": true}
+    {
+        "source": "/", 
+        "destination": "https://isaacrutter.dev/?view=projects", 
+        "permanent": true
+    },
+    {
+        "source": "/:path*", 
+        "destination": "https://isaacrutter.dev/?view=projects", 
+        "permanent": true
+    }
 ]
 ```
 Note the use of the `permanent` attribute for each entry. This is a Boolean attribute that only changes which status code is returned by the redirect, with `true` returning 308 (indicating a permanent move) and `false` returning 307 (indicating a temporary move). These are semantic for the purposes of my website (and the difference is invisible to users anyway) so it did not matter which value I chose, but other websites may be more selective because it can affect things like search engine optimisation (SEO) or API requests. Lucky me for not having to worry about this, I suppose.

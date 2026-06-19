@@ -20,7 +20,6 @@
   --text-colour: #000000;
   --text-colour-secondary: #3b3b3b;
   --text-colour-a: #0000ff;
-  --games-colour: rgb(76, 159, 248);
   --img-invert: invert(0%);
 }
 
@@ -31,7 +30,6 @@
   --text-colour: #ffffff;
   --text-colour-secondary: #afafaf;
   --text-colour-a: #7080ff;
-  --games-colour: rgb(179, 96, 7);
   --img-invert: invert(100%);
 }
 
