@@ -4,8 +4,8 @@ filename: hosting-and-routing.md
 title: Creating a Website - Deployment
 slug: creating-a-website-deployment
 created: 2026-02-05 08:51:23.670405
-modified: 2026-02-05 17:12:02.695634
-hash: 33ad82ec74d35d4d4b74e7e7b5e55edffd2a6791ed175348cc32701771706992
+modified: 2026-06-19 09:09:59.624856
+hash: 78116a65b9348c8181a2db2b0910a3085d1f65ef42cf45e2cd55e687de20d2e8
 ---
 
 # Introduction
