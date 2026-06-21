@@ -7,11 +7,11 @@ from mistune.toc import add_toc_hook, render_toc_ul
 from yaml import safe_load, safe_dump
 from hashlib import sha256
 from shutil import copy
-from re import sub
+import json
 
 def main():
     POSTS = {}
-    ENV = Environment(loader=FileSystemLoader("templates"))
+    ENV = Environment(loader=FileSystemLoader("src/templates"))
     ENV.globals['datetime'] = datetime # Make the datetime module available to templates
     ENV.globals['posts'] = POSTS # Make posts available to templates globally
 
@@ -114,9 +114,13 @@ def main():
 
     print("The homepage is now being created.")
 
+    # Read the projects data
+    with open("src/data/projects.json", "r") as file:
+        projects = json.load(file)
+
     # Get the homepage template and render it
     homepage = ENV.get_template("homepage.html")
-    output = homepage.render()
+    output = homepage.render(projects=projects)
 
     # Write the render to the index.html file
     with open("public/index.html", "w") as file:

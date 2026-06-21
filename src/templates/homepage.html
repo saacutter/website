@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}saacutter.github.io{% endblock %}
+
+{% block body %}
+<div class="container" style="align-self: center;">
+    <img src="/img/mii.png" alt="An image of my Mii" id="mii">
+    <p class="centered">This is some text.</p>
+</div>
+<div class="container">
+    <ul id="projects-list" style="padding-left: 0;">
+        {% for project in projects %}
+            <li>
+                <h2>{{project.name}}</h2>
+                <div>
+                    <p>{{project.description}}</p>
+                    <div class="buttons">
+                        <a href="{{project.source}}"><button>Source Code</button></a>
+                        {% if project.demo %}<a href="{{project.demo}}"><button>Project Demo</button></a>{% endif %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="container">
+    {% for year, months in posts.items() | sort(attribute='0', reverse=True) %}
+        <div style="margin-bottom: 5em;">
+            <h1>{{ year }}</h1>
+            {% for month, blog in months.items() | sort(attribute='0', reverse=True) %}
+                <div style="margin-left: 2em;">
+                    <h3>{{ datetime.datetime.strptime(month, '%m').strftime('%B') }}</h3>
+                    {% for post in blog %}
+                        <a href="/{{ '%02d' | format(post.created.year) }}/{{ '%02d' | format(post.created.month) }}/{{ '%02d' | format(post.created.day) }}/{{ post.slug }}/" class="post-entry">
+                            {{ post.title }} <span>({% if "modified" in post %}{{ post.modified.strftime('%d-%m') }}{% else %}{{ post.created.strftime('%d-%m') }}{% endif %})</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

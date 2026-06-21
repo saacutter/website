@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Mini-Language Transpiler",
+        "description": "This was the first project developed for CITS2002 (Systems Programming) in semester 2 2024. The goal of the project was to implement a C11 program which compiled and executed the code of a non-existent mini programming language.",
+        "source": "https://github.com/saacutter/minilang-transpiler",
+        "demo": "",
+        "release": "August 2024"
+    },
+    {
+        "name": "Tournament Manager",
+        "description": "This was the project developed for CITS3403 (Agile Web Development) in semester 1 2025. This is a web application using the Flask framework that allows users to upload data from their played tournaments and share that with friends.",
+        "source": "https://github.com/saacutter/tournament-manager",
+        "demo": "",
+        "release": "May 2025"
+    },
+    {
+        "name": "Australian Employment Trends",
+        "description": "This was the project developed for CITS2402 (Introduction to Data Science) in semester 2 2025. It compares the employment trends in Australia using Census data from the ABS from 2016 and 2021.",
+        "source": "https://github.com/saacutter/census-employment-trends",
+        "demo": "",
+        "release": "September 2025"
+    },
+    {
+        "name": "The Diplomacy Agent",
+        "description": "This was the project developed for CITS3011 (Intelligent Agents) in semester 2 2025. This is an agent that can play the popular strategy board game The Diplomacy.",
+        "source": "https://github.com/saacutter/diplomacy-agent",
+        "demo": "",
+        "release": "October 2025"
+    },
+    {
+        "name": "Calculator",
+        "description": "This is a basic calculator which I developed to learn HTML, CSS, and JavaScript.",
+        "source": "https://github.com/saacutter/Calculator",
+        "demo": "https://projects.isaacrutter.dev/calculator/",
+        "release": "February 2025"
+    },
+    {
+        "name": "Grade Calculator",
+        "description": "This is a caluclator that can be used to calculate grades of courses, including the final grade required in order to achieve a certain final grade.",
+        "source": "https://github.com/saacutter/Grade-Calculator",
+        "demo": "https://projects.isaacrutter.dev/grades/",
+        "release": "February 2025"
+    },
+    {
+        "name": "Password Manager",
+        "description": "This is an application designed to manage passwords. As the code is open source, it is not recommended to use it to store actual passwords. It is, however, a tool that can be played around with, and was designed purely as an experimental project.",
+        "source": "https://github.com/saacutter/Password-Manager",
+        "demo": "/Projects/PasswordManager/password.html",
+        "release": "February 2025"
+    }
+]
