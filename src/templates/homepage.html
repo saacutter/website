@@ -8,16 +8,17 @@
     <p class="centered">This is some text.</p>
 </div>
 <div class="container">
-    <ul id="projects-list" style="padding-left: 0;">
+    <ul id="projects-list">
         {% for project in projects %}
             <li>
-                <h2>{{project.name}}</h2>
+                <div style="display: flex; align-items: center; font-size: 1rem;">
+                    <a href="{{ project.source }}">{{ project.name }}</a>
+                    {% set month, year = project.release.split(" ") %}
+                    <span style="margin-left: auto">{% if month | length > 3 %}{{ month[:3] + ". " + year }}{% elif month | length == 3 %}{{ project.release }}{% else %}Ongoing{% endif %}</span>
+                </div>
                 <div>
-                    <p>{{project.description}}</p>
-                    <div class="buttons">
-                        <a href="{{project.source}}"><button>Source Code</button></a>
-                        {% if project.demo %}<a href="{{project.demo}}"><button>Project Demo</button></a>{% endif %}
-                    </div>
+                    <p style="color: var(--text-colour-secondary); font-size: 1rem;">{{ project.description }}</p>
+                    {% if project.demo %}<a href="{{project.demo}}"><button>{{ project.demoText }}</button></a>{% endif %}
                 </div>
             </li>
         {% endfor %}

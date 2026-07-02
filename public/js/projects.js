@@ -20,16 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Unselect and hide all categories
             navbar.forEach((n) => n.classList.remove('navbar-selected'));
+            navbar.forEach((n) => n.classList.remove('navbar-clicked'));
             categories.forEach((category) => category.style.display = 'none');
 
             // Select the clicked category
             nav.classList.add('navbar-selected');
+            nav.classList.add('navbar-clicked');
 
             // Make the corresponding category visible
             categories[i].style.display = 'block';
 
             // Change the page title to reflect the current view (adapted from https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript)
-            document.title = `saacutter.github.io - ${nav.id.charAt(0).toUpperCase() + nav.id.substring(1)}`;
+            if (nav.id != "home") document.title = `Isaac Rutter - ${nav.id.charAt(0).toUpperCase() + nav.id.substring(1)}`;
+            else document.title = `Isaac Rutter`;
 
             // Push the new URL to history (adapted from https://stackoverflow.com/questions/3528324/how-to-get-the-previous-url-in-javascript)
             if (window.history.state == null || window.history.state.prevView != nav.id) window.history.pushState({prevView: nav.id}, '', `?view=${nav.id}`);

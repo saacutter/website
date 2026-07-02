@@ -15,7 +15,7 @@
 
 [data-theme="light"] { /* Adapted from https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f?comments_sort=latest */
   --bg-colour: #ffffff;
-  --bg-colour-secondary: #555555;
+  --bg-colour-secondary: #1a1a1a;
   --code-bg-colour: #f3f3f3;
   --text-colour: #000000;
   --text-colour-secondary: #3b3b3b;
@@ -24,7 +24,7 @@
 }
 
 [data-theme="dark"] {
-  --bg-colour: #2c2c2c;
+  --bg-colour: #1a1a1a;
   --bg-colour-secondary: #000000;
   --code-bg-colour: #1a1b26;
   --text-colour: #ffffff;
@@ -132,6 +132,7 @@ header.base {
   padding: 1em;
   clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
   position: relative;
+  border: 1px solid transparent;
 }
 
 .navbar-selected {
@@ -139,25 +140,46 @@ header.base {
   color: var(--text-colour) !important;
 }
 
+.navbar-clicked {
+  border-top: 1px solid white !important;
+}
+
 #home-nav a:last-child {
   clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+ul#projects-list {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ul#projects-list > li {
   background-color: var(--bg-colour);
   list-style-type: none;
   text-align: left;
-  padding: 1em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 3em;
-  margin-right: 3em;
-  border: 2px solid var(--text-colour);
-  border-radius: 10px;
+  border-top: 2px solid var(--text-colour-secondary);
+  padding: 2em 0;
 }
 
-li > h2 {
-  margin: 0;
+ul#projects-list > li:first-child {
+  border-top: none;
+}
+
+ul#projects-list > li > div:first-of-type {
+  height: 2em;
+}
+
+ul#projects-list a {
+  color: var(--text-colour);
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+ul#projects-list a:hover {
+  color: var(--text-colour-secondary);
 }
 
 button {
