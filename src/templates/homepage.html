@@ -13,8 +13,7 @@
             <li>
                 <div style="display: flex; align-items: center; font-size: 1rem;">
                     <a href="{{ project.source }}">{{ project.name }}</a>
-                    {% set month, year = project.release.split(" ") %}
-                    <span style="margin-left: auto">{% if month | length > 3 %}{{ month[:3] + ". " + year }}{% elif month | length == 3 %}{{ project.release }}{% else %}Ongoing{% endif %}</span>
+                    <span style="margin-left: auto">{% if project.ongoing %}Ongoing{% else %}{{ project.release.strftime("%b %Y") }}{% endif %}</span>
                 </div>
                 <div>
                     <p style="color: var(--text-colour-secondary); font-size: 1rem;">{{ project.description }}</p>

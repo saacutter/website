@@ -118,6 +118,17 @@ def main():
     with open("src/data/projects.json", "r") as file:
         projects = json.load(file)
 
+    # Convert project release into date objects
+    for project in projects:
+        if not project['release']:
+            project['release'] = datetime.datetime.now()
+            project['ongoing'] = True
+        else:
+            project['release'] = datetime.datetime.strptime(project['release'], "%B %Y")
+
+    # Sort the projects from most recent to least recent
+    projects.sort(key = lambda x: x['release'], reverse = True)
+
     # Get the homepage template and render it
     homepage = ENV.get_template("homepage.html")
     output = homepage.render(projects=projects)
