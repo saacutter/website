@@ -81,8 +81,8 @@ header.base, footer {
 
 .icon > img {
   width: 2em;
-  height: 2em;
-  margin: 1em;
+  height: auto;
+  margin: 0.75em;
   transition: all 0.2s ease-in;
 }
 
@@ -289,14 +289,29 @@ code {
   color: var(--text-colour-secondary);
 }
 
-@media screen and (max-width: 500px) {
-  #home-nav, code {
+@media screen and (max-width: 350px) {
+  #home-nav {
     font-size: 10px;
   }
 
   #home-nav a {
     vertical-align: middle;
     padding: 1.8em;
+  }
+
+  footer.centered > div > a.icon > img {
+    height: 1.5em;
+    width: auto;
+  }
+
+  footer.centered > p {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  code {
+    font-size: 10px;
   }
 
   .post-with-toc {
@@ -319,12 +334,5 @@ code {
 
   article {
     width: 90%;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  footer > div.centered {
-    margin-left: auto;
-    margin-right: 0;
   }
 }

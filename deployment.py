@@ -120,7 +120,7 @@ def main():
 
     # Convert project release into date objects
     for project in projects:
-        if not project['release']:
+        if 'release' not in project:
             project['release'] = datetime.datetime.now()
             project['ongoing'] = True
         else:
