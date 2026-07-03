@@ -6,6 +6,7 @@
         
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/img/mii.png">
 
         <link href="/css/styles.css" rel="stylesheet">
         <script src="/js/projects.js"></script>
@@ -37,19 +38,19 @@
         <main>
             {% block body %}{% endblock %}
         </main>
-        <footer>
+        <footer class="centered">
+            <p style="color: white; position: absolute; left: 1em;">© {{ datetime.date.today().year }} Isaac Rutter</p>
             <div class="centered">
                 <a href="mailto:me@isaacrutter.dev" class="icon">
-                    <img src="/img/mail.svg" alt="Email icon">
+                    <img src="/img/mail.svg" alt="Email">
                 </a>
                 <a href="https://github.com/saacutter" class="icon">
-                    <img src="/img/github-white.svg" alt="GitHub icon">
+                    <img src="/img/github-white.svg" alt="GitHub">
                 </a>
                 <a href="https://www.linkedin.com/in/isaac-rutter/" class="icon">
-                    <img src="/img/linkedin-white.png" alt="LinkedIn icon">
+                    <img src="/img/linkedin-white.png" alt="LinkedIn">
                 </a>
             </div>
-            <p class="centered" style="color: white;">© {{ datetime.date.today().year }} Isaac Rutter</p>
         </footer>
     </body>
 </html>
