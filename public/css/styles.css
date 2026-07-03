@@ -158,6 +158,7 @@ ul#projects-list {
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
+  overflow-wrap: break-word;
 }
 
 ul#projects-list > li {
