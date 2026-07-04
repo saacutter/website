@@ -59,7 +59,7 @@
     },
     {
         "name": "Grade Calculator",
-        "description": "This is a caluclator that can be used to calculate grades of courses, including the final grade required in order to achieve a certain final grade.",
+        "description": "This is a calculator that can be used to calculate grades of courses, including the final grade required in order to achieve a certain final grade.",
         "source": "https://github.com/saacutter/Grade-Calculator",
         "demo": "https://projects.isaacrutter.dev/grades/",
         "demoText": "Project Demo",
