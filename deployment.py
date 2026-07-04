@@ -121,10 +121,10 @@ def main():
     # Convert project release into date objects
     for project in projects:
         if 'release' not in project:
-            project['release'] = datetime.datetime.now()
+            project['release'] = datetime.date.today()
             project['ongoing'] = True
         else:
-            project['release'] = datetime.datetime.strptime(project['release'], "%B %Y")
+            project['release'] = datetime.datetime.strptime(project['release'], "%B %Y").date()
 
     # Sort the projects from most recent to least recent
     projects.sort(key = lambda x: x['release'], reverse = True)
