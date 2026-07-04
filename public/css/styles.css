@@ -125,6 +125,7 @@ header.base {
 #home-nav {
   margin-left: auto;
   align-content: center;
+  display: flex;
 }
 
 #home-nav a {

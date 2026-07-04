@@ -26,8 +26,8 @@
             <a>
                 <img src="" alt="Colour preference button" id="colour-mode" style="filter: invert(100%); margin: 10px; display: inline-flex;">
             </a>
-            <div style="margin-left: auto;">
-                <nav id="home-nav" style="display: flex;">
+            <div style="margin-left: auto; display: flex;">
+                <nav id="home-nav">
                     <a style="left: 14%;" id="home" href="/?view=home">home</a>
                     <a style="left: 7%;" id="projects" href="/?view=projects">projects</a>
                     <a id="blog" href="/?view=blog">blog</a>
@@ -38,7 +38,7 @@
             {% block body %}{% endblock %}
         </main>
         <footer class="centered">
-            <p style="color: white; position: absolute; left: 1em;">© {{ datetime.date.today().year }} Isaac Rutter</p>
+            <p style="color: var(--text-colour-secondary); position: absolute; left: 1em;">© Isaac Rutter {{ datetime.date.today().year }}</p>
             <div style="margin-left: auto;">
                 <a href="mailto:me@isaacrutter.dev" class="icon">
                     <img src="/img/mail.svg" alt="Email">
