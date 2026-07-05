@@ -11,13 +11,13 @@
     <ul id="projects-list">
         {% for project in projects %}
             <li>
-                <div style="display: flex; align-items: center; font-size: 1rem; gap: 1em;">
-                    <a href="{{ project.source }}">{{ project.name }}</a>
+                <div style="display: flex; align-items: center;">
+                    <a href="{{ project.source }}" class="project-name">{{ project.name }}</a>
                     <span style="margin-left: auto">{% if project.ongoing %}Ongoing{% else %}{{ project.release.strftime("%b %Y") }}{% endif %}</span>
                 </div>
                 <div>
-                    <p style="color: var(--text-colour-secondary); font-size: 1rem;">{{ project.description }}</p>
-                    {% if project.demo %}<a href="{{project.demo}}"><button>{{ project.demoText }}</button></a>{% endif %}
+                    <p style="color: var(--text-colour-secondary);">{{ project.description }}</p>
+                    {% if project.demo %}<a href="{{ project.demo }}" class="project-demo">{{ project.demoText }} &nearr;</a>{% endif %}
                 </div>
             </li>
         {% endfor %}

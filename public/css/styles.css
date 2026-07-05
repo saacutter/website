@@ -19,7 +19,7 @@
   --code-bg-colour: #f3f3f3;
   --text-colour: #000000;
   --text-colour-secondary: #3b3b3b;
-  --text-colour-a: #0000ff;
+  --text-colour-a: #7080ff;
   --img-invert: invert(0%);
 }
 
@@ -29,7 +29,7 @@
   --code-bg-colour: #1a1b26;
   --text-colour: #ffffff;
   --text-colour-secondary: #afafaf;
-  --text-colour-a: #7080ff;
+  --text-colour-a: #c8b89a;
   --img-invert: invert(100%);
 }
 
@@ -98,7 +98,6 @@ header.base, footer {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 main {
@@ -167,7 +166,16 @@ ul#projects-list > li {
   list-style-type: none;
   text-align: left;
   border-top: 2px solid var(--text-colour-secondary);
-  padding: 2em 0;
+  padding: 1.5em 0;
+  font-size: 1rem;
+}
+
+ul#projects-list > li:first-child {
+  padding-top: 0.5em;
+}
+
+ul#projects-list > li:last-child {
+  padding-bottom: 0.5em;
 }
 
 ul#projects-list > li:first-child {
@@ -178,32 +186,23 @@ ul#projects-list > li > div:first-of-type {
   height: 2em;
 }
 
-ul#projects-list a {
+.project-name {
   color: var(--text-colour);
-  font-size: 1rem;
   transition: color 0.2s;
 }
 
-ul#projects-list a:hover {
+.project-name:hover {
   color: var(--text-colour-secondary);
 }
 
-button {
-  background-color: white;
-  color: black;
-  border: 2px solid grey;
-  border-radius: 4px;
-  font-family: var(--font);
-  font-weight: bolder;
-  height: 2em;
-  width: 8em;
-  cursor: pointer;
-  transition: 0.25s ease-out;
+.project-demo {
+  color: var(--text-colour-a);
+  text-decoration: underline;
+  transition: color 0.2s;
 }
 
-button:hover {
-  transform: scale(1.01);
-  filter: brightness(90%);
+.project-demo:hover {
+  color: var(--text-colour);
 }
 
 .buttons {
