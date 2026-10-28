@@ -50,6 +50,36 @@
         "release": "May 2026"
     },
     {
+        "name": "Intentionally Vulnerable Application CTF",
+        "description": "This was the project developed for CITS3006 (Penetration Testing). It involved making a number of challenges based on some provided criteria, with the final application being tested by other people in a cohort-wide CTF. I designed and implemented the instruction pointer manipulation, RSA common modulus attack, base pointer manipulation, and PATH hijacking challenges with some additional design work on some other implemented challenges.",
+        "source": "https://github.com/saacutter/cits3006-project",
+        "demo": "https://github.com/saacutter/cits3006-project/blob/main/report.pdf",
+        "demoText": "Report",
+        "release": "September 2026"
+    },
+    {
+        "name": "OpenMP Birthday Attack",
+        "description": "This was the first project developed for CITS3402 (High Performance Computing). It involved using OpenMP to parallelise brute-forcing a collision using an intentionally weak hash function for some PDF file pairs using the properties of the birthday attack. This involved running the program on UWA's Kaya HPC system.",
+        "source": "https://github.com/saacutter/openmp-birthday-attack",
+        "demo": "https://github.com/saacutter/openmp-birthday-attack/blob/main/report.pdf",
+        "demoText": "Report",
+        "release": "September 2026"
+    },
+    {
+        "name": "MPI Birthday Attack",
+        "description": "This was the second project developed for CITS3402 (High Performance Computing). It involved extending the OpenMP parallelism to use MPI (both with and without OpenMP parallelism) to brute-force the same hash function. This involved running the program on both UWA's Kaya and Pawsey's Setonix HPC systems.",
+        "source": "https://github.com/saacutter/mpi-birthday-attack",
+        "demo": "https://github.com/saacutter/mpi-birthday-attack/blob/main/report.pdf",
+        "demoText": "Report",
+        "release": "October 2026"
+    },
+    {
+        "name": "VNN-LIB Library Extensions",
+        "description": "This was the project developed for CITS3200 (Professional Computing). This involved implementing a new API in the C++ parser (https://github.com/VNNLIB/VNNLIB-CPP) and adding the bindings to the Python library (https://github.com/VNNLIB/VNNLIB-Python), extending the existing API with the VNN-LIB theory sets, and implementing a test solver (https://github.com/VNNLIB/VNNLIB-Test-Solver).",
+        "source": "https://github.com/VNNLIB",
+        "release": "October 2026"
+    },
+    {
         "name": "Calculator",
         "description": "This is a basic calculator which I developed to learn HTML, CSS, and JavaScript.",
         "source": "https://github.com/saacutter/Calculator",
